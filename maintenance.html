@@ -237,9 +237,9 @@
 <!-- midal Maintenance -->
     <div id="maintenancemidal" class="midal">
         <div class="midal-content">
-            <h2>🚀 Update Tersedia!</h2><br>
-            <p>Versi 1.10 BETA Telah dirilis!<br> Silahkan perbarui ke versi terbaru untuk mendapatkan fitur terbaru dan keamanan yang ditingkatkan!</b></p>
-            <button onclick="contactCustomerService()">Update Sekarang</button>
+            <h2>📢 Maintenance!</h2><br>
+            <p>Saat ini server sedang dalam perbaikan dan perawatan oleh BIMTOL, Anda tidak dapat mengakses apapun ke server BIMTOL PROJECT untuk saat ini<br><br> Server akan dibuka kembali pada :<br><b>27 Februari 2025 Pukul 08.00 WIB</b></p>
+            <button onclick="contactCustomerService()">Hubungi BIMTOL</button>
         </div>
     </div>
 
@@ -268,6 +268,17 @@
             window.location.href = "https://wa.me/6289508984455"; // Ganti dengan nomor WhatsApp CS
         }
         
+        function checkMaintenance() {
+    const maintenanceEndDate = new Date("2025-02-27T08:00:00").getTime();
+    const now = new Date().getTime();
+
+    if (now >= maintenanceEndDate) {
+        document.getElementById("maintenancemidal").style.display = "none";
+    } else {
+        document.getElementById("maintenancemidal").style.display = "flex";
+    }
+}
+
 // Panggil fungsi saat halaman dimuat
 window.onload = checkMaintenance;
         

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Bima AI Chatbot</title>
+    <title>BiSTao AI Chatbot</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
     
@@ -183,8 +183,9 @@
         .chat-input button i {
             font-size: 18px;
         }
-        /* midal Maintenance */
-        .midal {
+        
+                /* Modal Maintenance */
+        .modal {
             display: flex;
             position: fixed;
             z-index: 1000;
@@ -197,7 +198,7 @@
             align-items: center;
         }
 
-        .midal-content {
+        .modal-content {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
@@ -207,16 +208,16 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .midal-content h2 {
+        .modal-content h2 {
             color: #d9534f;
         }
 
-        .midal-content p {
+        .modal-content p {
             font-size: 16px;
             margin-bottom: 15px;
         }
 
-        .midal-content button {
+        .modal-content button {
             background: #007bff;
             color: white;
             border: none;
@@ -227,25 +228,16 @@
             width: 100%;
         }
 
-        .midal-content button:hover {
+        .modal-content button:hover {
             background: #0056b3;
         }
     </style>
 </head>
 <body onload="loadChatHistory()">
 
-<!-- midal Maintenance -->
-    <div id="maintenancemidal" class="midal">
-        <div class="midal-content">
-            <h2>🚀 Update Tersedia!</h2><br>
-            <p>Versi 1.10 BETA Telah dirilis!<br> Silahkan perbarui ke versi terbaru untuk mendapatkan fitur terbaru dan keamanan yang ditingkatkan!</b></p>
-            <button onclick="contactCustomerService()">Update Sekarang</button>
-        </div>
-    </div>
-
     <div class="chat-container">
         <div class="chat-header">
-            <i class="fas fa-robot"></i> Bima AI
+            <i class="fas fa-robot"></i> BiSTaoAI
             <button class="toggle-theme" onclick="toggleTheme()">
                 <i class="fas fa-moon"></i>
             </button>
@@ -254,26 +246,15 @@
         <div class="chat-box" id="chatbox"></div>
 
         <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Ketik disini ya bro!..." onkeypress="handleKeyPress(event)">
+            <input type="text" id="userInput" placeholder="Ketik disini ya cil..." onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
     <script>
-        function showMaintenancemidal() {
-            document.getElementById("maintenancemidal").style.display = "flex";
-        }
-
-        function contactCustomerService() {
-            window.location.href = "https://wa.me/6289508984455"; // Ganti dengan nomor WhatsApp CS
-        }
-        
-// Panggil fungsi saat halaman dimuat
-window.onload = checkMaintenance;
-        
         let apiKey = "AIzaSyBQcvD8p0jPi-Pju1pIyKs-baEVqG5nxeo";
-        let botName = "Bima AI";
-        let userName = "Saya";
+        let botName = "BiSTaoAI";
+        let userName = "Anda";
 
         function handleKeyPress(event) {
             if (event.key === "Enter") {
@@ -291,7 +272,7 @@ window.onload = checkMaintenance;
             if (history) {
                 chatbox.innerHTML = history;
             } else {
-                chatbox.innerHTML = `<p class="bot-message message"><i class="fas fa-robot"></i> <b>${botName}:</b> Halo Bro! Apa yang bisa Bima bantu?</p>`;
+                chatbox.innerHTML = `<p class="bot-message message"><i class="fas fa-robot"></i> <b>${botName}:</b> Halo Bro! Apa yang bisa BiSTaoAI bantu?</p>`;
             }
             chatbox.scrollTop = chatbox.scrollHeight;
         }
@@ -321,7 +302,7 @@ window.onload = checkMaintenance;
             let data = await response.json();
             chatbox.removeChild(typingIndicator);
 
-            let botResponse = data.candidates[0].content.parts[0].text.replace(/Gemini/g, "Bima AI").replace(/\b(Anda|Kamu)\b/g, "Anda");
+            let botResponse = data.candidates[0].content.parts[0].text.replace(/Gemini/g, "BiSTao").replace(/\b(Anda|Kamu)\b/g, "Anda");
 
             chatbox.innerHTML += `<p class="bot-message message"><b>${botName}:</b> ${botResponse}</p>`;
             saveChatHistory();
